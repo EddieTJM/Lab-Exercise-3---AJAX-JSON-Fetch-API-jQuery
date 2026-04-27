@@ -11,3 +11,19 @@ const weatherLookup = {
     80: { desc: "Rain Showers", icon: "🌦️" },
     95: { desc: "Thunderstorm", icon: "⛈️" }
 };
+
+let debounceTimer;
+
+// Debounce Search
+document.getElementById('cityInput').addEventListener('input', (e) => {
+    clearTimeout(debounceTimer);
+    const query = e.target.value.trim();
+    debounceTimer = setTimeout(() => {
+        if (query.length >= 2) executeSearch(query);
+        else if (query.length > 0) document.getElementById('validation-msg').innerText = "Minimum 2 characters required.";
+    }, 500);
+});
+
+document.getElementById('searchBtn').addEventListener('click', () => {
+    executeSearch(document.getElementById('cityInput').value.trim());
+});
