@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNow - Real-Time Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="search-section">
+        <h1>WeatherNow Dashboard</h1>
+        <div style="display: flex; justify-content: center;">
+            <input type="text" id="cityInput" placeholder="Enter city (e.g. Kuala Lumpur)">
+            <button id="searchBtn">Search</button>
+        </div>
+        <div id="validation-msg"></div>
+    </div>
+
+    <div id="error-banner">
+        <span id="error-text"></span>
+        <button onclick="location.reload()" class="retry-btn">Retry</button>
+    </div>
+
+    <div id="current-card" class="card">
+        <h2 id="city-name" style="margin-top:0;">City Name</h2>
+        <p id="local-time" style="color: #666;">--:--</p>
+        <div style="font-size: 3rem; font-weight: bold; margin: 15px 0;"><span id="temp">--</span>°C</div>
+        <div id="weather-status" style="font-size: 1.2rem; margin-bottom: 15px;">--</div>
+        <hr style="border: 0; border-top: 1px solid #eee;">
+        <div style="margin-top: 15px; display: flex; gap: 20px; color: #555;">
+            <span>💧 Humidity: <span id="humidity">--</span>%</span>
+            <span>💨 Wind: <span id="wind">--</span> km/h</span>
+        </div>
+    </div>
+
+    <div class="forecast-row" id="forecast-container"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
